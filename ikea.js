@@ -123,31 +123,14 @@ function Thead(props) { return createElement('thead', props); }
 function Time(props) { return createElement('time', props); }
 function Title(props) { return createElement('title', props); }
 function Tr(props) { return createElement('tr', props); }
+function Track(props) { return createElement('track', props); }
 function U(props) { return createElement('u', props); }
 function Ul(props) { return createElement('ul', props); }
 function Var(props) { return createElement('var', props); }
 function Video(props) { return createElement('video', props); }
 function Wbr(props) { return createElement('wbr', props); }
 
-// Create text node
+// Helper function to create a Text node
 function Text(content) {
   return document.createTextNode(content);
 }
-
-// For debugging, log all available functions
-(function() {
-  const ikeaFunctions = { 
-    A, Abbr, Address, Area, Article, Aside, Audio, B, Base, Bdi, Bdo, Blockquote, Body,
-    Br, Button, Canvas, Caption, Cite, Code, Col, Colgroup, Data, Datalist, Del, Details,
-    Dfn, Dialog, Div, Dl, Dt, Em, Embed, Fieldset, Figcaption, Figure, Footer, Form, H1, H2,
-    H3, H4, H5, H6, Head, Header, Hr, Html, I, Iframe, Img, Input, Ins, Kbd, Label, Legend,
-    Li, Link, Main, Map, Mark, Meta, Meter, Nav, Noscript, Object, Ol, Optgroup, Option,
-    Output, P, Param, Picture, Pre, Progress, Q, Rp, Rt, Ruby, S, Samp, Script, Section,
-    Select, Small, Source, Span, Strong, Style, Sub, Summary, Sup, Table, Tbody, Td,
-    Textarea, Tfoot, Th, Thead, Time, Title, Tr, U, Ul, Var, Video, Wbr, Text
-  };
-
-  for (const [key, value] of Object.entries(ikeaFunctions)) {
-    console.log(`${key}: ${typeof value}`);
-  }
-})();
