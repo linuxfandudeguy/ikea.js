@@ -5,9 +5,9 @@ function createElement(tagName, props = {}) {
   const element = document.createElement(tagName);
 
   // Set properties
-  for (const [key, value] of Object.entries(props)) {
-    if (key !== 'children') {
-      element[key] = value;
+  for (const key in props) {
+    if (props.hasOwnProperty(key) && key !== 'children') {
+      element[key] = props[key];
     }
   }
 
@@ -134,14 +134,20 @@ function Text(content) {
   return document.createTextNode(content);
 }
 
-// Attach functions to a global object (e.g., window)
-window.Ikea = {
-  A, Abbr, Address, Area, Article, Aside, Audio, B, Base, Bdi, Bdo, Blockquote, Body,
-  Br, Button, Canvas, Caption, Cite, Code, Col, Colgroup, Data, Datalist, Del, Details,
-  Dfn, Dialog, Div, Dl, Dt, Em, Embed, Fieldset, Figcaption, Figure, Footer, Form, H1, H2,
-  H3, H4, H5, H6, Head, Header, Hr, Html, I, Iframe, Img, Input, Ins, Kbd, Label, Legend,
-  Li, Link, Main, Map, Mark, Meta, Meter, Nav, Noscript, Object, Ol, Optgroup, Option,
-  Output, P, Param, Picture, Pre, Progress, Q, Rp, Rt, Ruby, S, Samp, Script, Section,
-  Select, Small, Source, Span, Strong, Style, Sub, Summary, Sup, Table, Tbody, Td,
-  Textarea, Tfoot, Th, Thead, Time, Title, Tr, U, Ul, Var, Video, Wbr, Text
-};
+// For debugging, log all available functions
+(function() {
+  const ikeaFunctions = { 
+    A, Abbr, Address, Area, Article, Aside, Audio, B, Base, Bdi, Bdo, Blockquote, Body,
+    Br, Button, Canvas, Caption, Cite, Code, Col, Colgroup, Data, Datalist, Del, Details,
+    Dfn, Dialog, Div, Dl, Dt, Em, Embed, Fieldset, Figcaption, Figure, Footer, Form, H1, H2,
+    H3, H4, H5, H6, Head, Header, Hr, Html, I, Iframe, Img, Input, Ins, Kbd, Label, Legend,
+    Li, Link, Main, Map, Mark, Meta, Meter, Nav, Noscript, Object, Ol, Optgroup, Option,
+    Output, P, Param, Picture, Pre, Progress, Q, Rp, Rt, Ruby, S, Samp, Script, Section,
+    Select, Small, Source, Span, Strong, Style, Sub, Summary, Sup, Table, Tbody, Td,
+    Textarea, Tfoot, Th, Thead, Time, Title, Tr, U, Ul, Var, Video, Wbr, Text
+  };
+
+  for (const [key, value] of Object.entries(ikeaFunctions)) {
+    console.log(`${key}: ${typeof value}`);
+  }
+})();
