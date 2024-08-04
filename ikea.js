@@ -1,673 +1,149 @@
-// Ikea.js - A simple JavaScript framework for HTML elements
+// Ikea.js - A simple JavaScript framework for HTML elements 
 
-class BaseElement {
-  constructor(tagName, props = {}) {
-    this.element = document.createElement(tagName);
-    this.setProps(props);
-  }
+// Helper function to create an element and set properties
+function createElement(tagName, props = {}) {
+  const element = document.createElement(tagName);
 
-  setProps(props) {
-    for (const [key, value] of Object.entries(props)) {
-      if (key.startsWith('on')) {
-        this.element.addEventListener(key.substring(2).toLowerCase(), value);
-      } else {
-        this.element.setAttribute(key, value);
-      }
+  // Set properties
+  for (const [key, value] of Object.entries(props)) {
+    if (key !== 'children') {
+      element[key] = value;
     }
   }
 
-  appendChild(child) {
-    if (child instanceof BaseElement) {
-      this.element.appendChild(child.element);
-    } else if (typeof child === 'string') {
-      this.element.appendChild(document.createTextNode(child));
-    }
-  }
-
-  render() {
-    return this.element;
-  }
-}
-
-// HTML Element Classes
-class A extends BaseElement {
-  constructor(props) {
-    super('a', props);
-  }
-}
-
-class Abbr extends BaseElement {
-  constructor(props) {
-    super('abbr', props);
-  }
-}
-
-class Address extends BaseElement {
-  constructor(props) {
-    super('address', props);
-  }
-}
-
-class Area extends BaseElement {
-  constructor(props) {
-    super('area', props);
-  }
-}
-
-class Article extends BaseElement {
-  constructor(props) {
-    super('article', props);
-  }
-}
-
-class Aside extends BaseElement {
-  constructor(props) {
-    super('aside', props);
-  }
-}
-
-class Audio extends BaseElement {
-  constructor(props) {
-    super('audio', props);
-  }
-}
-
-class B extends BaseElement {
-  constructor(props) {
-    super('b', props);
-  }
-}
-
-class Base extends BaseElement {
-  constructor(props) {
-    super('base', props);
-  }
-}
-
-class Bdi extends BaseElement {
-  constructor(props) {
-    super('bdi', props);
-  }
-}
-
-class Bdo extends BaseElement {
-  constructor(props) {
-    super('bdo', props);
-  }
-}
-
-class Blockquote extends BaseElement {
-  constructor(props) {
-    super('blockquote', props);
-  }
-}
-
-class Body extends BaseElement {
-  constructor(props) {
-    super('body', props);
-  }
-}
-
-class Br extends BaseElement {
-  constructor(props) {
-    super('br', props);
-  }
-}
-
-class Button extends BaseElement {
-  constructor(props) {
-    super('button', props);
-  }
-}
-
-class Canvas extends BaseElement {
-  constructor(props) {
-    super('canvas', props);
-  }
-}
-
-class Caption extends BaseElement {
-  constructor(props) {
-    super('caption', props);
-  }
-}
-
-class Cite extends BaseElement {
-  constructor(props) {
-    super('cite', props);
-  }
-}
-
-class Code extends BaseElement {
-  constructor(props) {
-    super('code', props);
-  }
-}
-
-class Col extends BaseElement {
-  constructor(props) {
-    super('col', props);
-  }
-}
-
-class Colgroup extends BaseElement {
-  constructor(props) {
-    super('colgroup', props);
-  }
-}
-
-class Data extends BaseElement {
-  constructor(props) {
-    super('data', props);
-  }
-}
-
-class Datalist extends BaseElement {
-  constructor(props) {
-    super('datalist', props);
-  }
-}
-
-class Dd extends BaseElement {
-  constructor(props) {
-    super('dd', props);
-  }
-}
-
-class Del extends BaseElement {
-  constructor(props) {
-    super('del', props);
-  }
-}
-
-class Details extends BaseElement {
-  constructor(props) {
-    super('details', props);
-  }
-}
-
-class Dfn extends BaseElement {
-  constructor(props) {
-    super('dfn', props);
-  }
-}
-
-class Dialog extends BaseElement {
-  constructor(props) {
-    super('dialog', props);
-  }
-}
-
-class Div extends BaseElement {
-  constructor(props) {
-    super('div', props);
-  }
-}
-
-class Dl extends BaseElement {
-  constructor(props) {
-    super('dl', props);
-  }
-}
-
-class Dt extends BaseElement {
-  constructor(props) {
-    super('dt', props);
-  }
-}
-
-class Em extends BaseElement {
-  constructor(props) {
-    super('em', props);
-  }
-}
-
-class Embed extends BaseElement {
-  constructor(props) {
-    super('embed', props);
-  }
-}
-
-class Fieldset extends BaseElement {
-  constructor(props) {
-    super('fieldset', props);
-  }
-}
-
-class Figcaption extends BaseElement {
-  constructor(props) {
-    super('figcaption', props);
-  }
-}
-
-class Figure extends BaseElement {
-  constructor(props) {
-    super('figure', props);
-  }
-}
-
-class Footer extends BaseElement {
-  constructor(props) {
-    super('footer', props);
-  }
-}
-
-class Form extends BaseElement {
-  constructor(props) {
-    super('form', props);
-  }
-}
-
-class H1 extends BaseElement {
-  constructor(props) {
-    super('h1', props);
-  }
-}
-
-class H2 extends BaseElement {
-  constructor(props) {
-    super('h2', props);
-  }
-}
-
-class H3 extends BaseElement {
-  constructor(props) {
-    super('h3', props);
-  }
-}
-
-class H4 extends BaseElement {
-  constructor(props) {
-    super('h4', props);
-  }
-}
-
-class H5 extends BaseElement {
-  constructor(props) {
-    super('h5', props);
-  }
-}
-
-class H6 extends BaseElement {
-  constructor(props) {
-    super('h6', props);
-  }
-}
-
-class Header extends BaseElement {
-  constructor(props) {
-    super('header', props);
-  }
-}
-
-class Hgroup extends BaseElement {
-  constructor(props) {
-    super('hgroup', props);
-  }
-}
-
-class Hr extends BaseElement {
-  constructor(props) {
-    super('hr', props);
-  }
-}
-
-class Html extends BaseElement {
-  constructor(props) {
-    super('html', props);
-  }
-}
-
-class I extends BaseElement {
-  constructor(props) {
-    super('i', props);
-  }
-}
-
-class Iframe extends BaseElement {
-  constructor(props) {
-    super('iframe', props);
-  }
-}
-
-class Img extends BaseElement {
-  constructor(props) {
-    super('img', props);
-  }
-}
-
-class Input extends BaseElement {
-  constructor(props) {
-    super('input', props);
-  }
-}
-
-class Ins extends BaseElement {
-  constructor(props) {
-    super('ins', props);
-  }
-}
-
-class Kbd extends BaseElement {
-  constructor(props) {
-    super('kbd', props);
-  }
-}
-
-class Label extends BaseElement {
-  constructor(props) {
-    super('label', props);
-  }
-}
-
-class Legend extends BaseElement {
-  constructor(props) {
-    super('legend', props);
-  }
-}
-
-class Li extends BaseElement {
-  constructor(props) {
-    super('li', props);
-  }
-}
-
-class Link extends BaseElement {
-  constructor(props) {
-    super('link', props);
-  }
-}
-
-class Main extends BaseElement {
-  constructor(props) {
-    super('main', props);
-  }
-}
-
-class Map extends BaseElement {
-  constructor(props) {
-    super('map', props);
-  }
-}
-
-class Mark extends BaseElement {
-  constructor(props) {
-    super('mark', props);
-  }
-}
-
-class Meta extends BaseElement {
-  constructor(props) {
-    super('meta', props);
-  }
-}
-
-class Meter extends BaseElement {
-  constructor(props) {
-    super('meter', props);
-  }
-}
-
-class Nav extends BaseElement {
-  constructor(props) {
-    super('nav', props);
-  }
-}
-
-class Noscript extends BaseElement {
-  constructor(props) {
-    super('noscript', props);
-  }
-}
-
-class Object extends BaseElement {
-  constructor(props) {
-    super('object', props);
-  }
-}
-
-class Ol extends BaseElement {
-  constructor(props) {
-    super('ol', props);
-  }
-}
-
-class Optgroup extends BaseElement {
-  constructor(props) {
-    super('optgroup', props);
-  }
-}
-
-class Option extends BaseElement {
-  constructor(props) {
-    super('option', props);
-  }
-}
-
-class Output extends BaseElement {
-  constructor(props) {
-    super('output', props);
-  }
-}
-
-class P extends BaseElement {
-  constructor(props) {
-    super('p', props);
-  }
-}
-
-class Picture extends BaseElement {
-  constructor(props) {
-    super('picture', props);
-  }
-}
-
-class Pre extends BaseElement {
-  constructor(props) {
-    super('pre', props);
-  }
-}
-
-class Progress extends BaseElement {
-  constructor(props) {
-    super('progress', props);
-  }
-}
-
-class Q extends BaseElement {
-  constructor(props) {
-    super('q', props);
-  }
-}
-
-class Rp extends BaseElement {
-  constructor(props) {
-    super('rp', props);
-  }
-}
-
-class Rt extends BaseElement {
-  constructor(props) {
-    super('rt', props);
-  }
-}
-
-class Ruby extends BaseElement {
-  constructor(props) {
-    super('ruby', props);
-  }
-}
-
-class S extends BaseElement {
-  constructor(props) {
-    super('s', props);
-  }
-}
-
-class Samp extends BaseElement {
-  constructor(props) {
-    super('samp', props);
-  }
-}
-
-class Script extends BaseElement {
-  constructor(props) {
-    super('script', props);
-  }
-}
-
-class Section extends BaseElement {
-  constructor(props) {
-    super('section', props);
-  }
-}
-
-class Select extends BaseElement {
-  constructor(props) {
-    super('select', props);
-  }
-}
-
-class Small extends BaseElement {
-  constructor(props) {
-    super('small', props);
-  }
-}
-
-class Source extends BaseElement {
-  constructor(props) {
-    super('source', props);
-  }
-}
-
-class Span extends BaseElement {
-  constructor(props) {
-    super('span', props);
-  }
-}
-
-class Strong extends BaseElement {
-  constructor(props) {
-    super('strong', props);
-  }
-}
-
-class Style extends BaseElement {
-  constructor(props) {
-    super('style', props);
-  }
-}
-
-class Sub extends BaseElement {
-  constructor(props) {
-    super('sub', props);
-  }
-}
-
-class Summary extends BaseElement {
-  constructor(props) {
-    super('summary', props);
-  }
-}
-
-class Sup extends BaseElement {
-  constructor(props) {
-    super('sup', props);
-  }
-}
-
-class Table extends BaseElement {
-  constructor(props) {
-    super('table', props);
-  }
-}
-
-class Tbody extends BaseElement {
-  constructor(props) {
-    super('tbody', props);
-  }
-}
-
-class Td extends BaseElement {
-  constructor(props) {
-    super('td', props);
-  }
-}
-
-class Template extends BaseElement {
-  constructor(props) {
-    super('template', props);
-  }
-}
-
-class Textarea extends BaseElement {
-  constructor(props) {
-    super('textarea', props);
-  }
-}
-
-class Tfoot extends BaseElement {
-  constructor(props) {
-    super('tfoot', props);
-  }
-}
-
-class Th extends BaseElement {
-  constructor(props) {
-    super('th', props);
-  }
-}
-
-class Thead extends BaseElement {
-  constructor(props) {
-    super('thead', props);
-  }
-}
-
-class Time extends BaseElement {
-  constructor(props) {
-    super('time', props);
-  }
-}
-
-class Title extends BaseElement {
-  constructor(props) {
-    super('title', props);
-  }
-}
-
-class Tr extends BaseElement {
-  constructor(props) {
-    super('tr', props);
-  }
-}
-
-class U extends BaseElement {
-  constructor(props) {
-    super('u', props);
-  }
-}
-
-class Ul extends BaseElement {
-  constructor(props) {
-    super('ul', props);
-  }
-}
-
-class Var extends BaseElement {
-  constructor(props) {
-    super('var', props);
-  }
-}
-
-class Video extends BaseElement {
-  constructor(props) {
-    super('video', props);
-  }
-}
-
-class Wbr extends BaseElement {
-  constructor(props) {
-    super('wbr', props);
-  }
+  // Append children
+  if (props.children) {
+    props.children.forEach(child => {
+      element.appendChild(child);
+    });
+  }
+
+  return element;
+}
+
+// Functions for standard HTML elements
+function A(props) { return createElement('a', props); }
+function Abbr(props) { return createElement('abbr', props); }
+function Address(props) { return createElement('address', props); }
+function Area(props) { return createElement('area', props); }
+function Article(props) { return createElement('article', props); }
+function Aside(props) { return createElement('aside', props); }
+function Audio(props) { return createElement('audio', props); }
+function B(props) { return createElement('b', props); }
+function Base(props) { return createElement('base', props); }
+function Bdi(props) { return createElement('bdi', props); }
+function Bdo(props) { return createElement('bdo', props); }
+function Blockquote(props) { return createElement('blockquote', props); }
+function Body(props) { return createElement('body', props); }
+function Br(props) { return createElement('br', props); }
+function Button(props) { return createElement('button', props); }
+function Canvas(props) { return createElement('canvas', props); }
+function Caption(props) { return createElement('caption', props); }
+function Cite(props) { return createElement('cite', props); }
+function Code(props) { return createElement('code', props); }
+function Col(props) { return createElement('col', props); }
+function Colgroup(props) { return createElement('colgroup', props); }
+function Data(props) { return createElement('data', props); }
+function Datalist(props) { return createElement('datalist', props); }
+function Del(props) { return createElement('del', props); }
+function Details(props) { return createElement('details', props); }
+function Dfn(props) { return createElement('dfn', props); }
+function Dialog(props) { return createElement('dialog', props); }
+function Div(props) { return createElement('div', props); }
+function Dl(props) { return createElement('dl', props); }
+function Dt(props) { return createElement('dt', props); }
+function Em(props) { return createElement('em', props); }
+function Embed(props) { return createElement('embed', props); }
+function Fieldset(props) { return createElement('fieldset', props); }
+function Figcaption(props) { return createElement('figcaption', props); }
+function Figure(props) { return createElement('figure', props); }
+function Footer(props) { return createElement('footer', props); }
+function Form(props) { return createElement('form', props); }
+function H1(props) { return createElement('h1', props); }
+function H2(props) { return createElement('h2', props); }
+function H3(props) { return createElement('h3', props); }
+function H4(props) { return createElement('h4', props); }
+function H5(props) { return createElement('h5', props); }
+function H6(props) { return createElement('h6', props); }
+function Head(props) { return createElement('head', props); }
+function Header(props) { return createElement('header', props); }
+function Hr(props) { return createElement('hr', props); }
+function Html(props) { return createElement('html', props); }
+function I(props) { return createElement('i', props); }
+function Iframe(props) { return createElement('iframe', props); }
+function Img(props) { return createElement('img', props); }
+function Input(props) { return createElement('input', props); }
+function Ins(props) { return createElement('ins', props); }
+function Kbd(props) { return createElement('kbd', props); }
+function Label(props) { return createElement('label', props); }
+function Legend(props) { return createElement('legend', props); }
+function Li(props) { return createElement('li', props); }
+function Link(props) { return createElement('link', props); }
+function Main(props) { return createElement('main', props); }
+function Map(props) { return createElement('map', props); }
+function Mark(props) { return createElement('mark', props); }
+function Meta(props) { return createElement('meta', props); }
+function Meter(props) { return createElement('meter', props); }
+function Nav(props) { return createElement('nav', props); }
+function Noscript(props) { return createElement('noscript', props); }
+function Object(props) { return createElement('object', props); }
+function Ol(props) { return createElement('ol', props); }
+function Optgroup(props) { return createElement('optgroup', props); }
+function Option(props) { return createElement('option', props); }
+function Output(props) { return createElement('output', props); }
+function P(props) { return createElement('p', props); }
+function Param(props) { return createElement('param', props); }
+function Picture(props) { return createElement('picture', props); }
+function Pre(props) { return createElement('pre', props); }
+function Progress(props) { return createElement('progress', props); }
+function Q(props) { return createElement('q', props); }
+function Rp(props) { return createElement('rp', props); }
+function Rt(props) { return createElement('rt', props); }
+function Ruby(props) { return createElement('ruby', props); }
+function S(props) { return createElement('s', props); }
+function Samp(props) { return createElement('samp', props); }
+function Script(props) { return createElement('script', props); }
+function Section(props) { return createElement('section', props); }
+function Select(props) { return createElement('select', props); }
+function Small(props) { return createElement('small', props); }
+function Source(props) { return createElement('source', props); }
+function Span(props) { return createElement('span', props); }
+function Strong(props) { return createElement('strong', props); }
+function Style(props) { return createElement('style', props); }
+function Sub(props) { return createElement('sub', props); }
+function Summary(props) { return createElement('summary', props); }
+function Sup(props) { return createElement('sup', props); }
+function Table(props) { return createElement('table', props); }
+function Tbody(props) { return createElement('tbody', props); }
+function Td(props) { return createElement('td', props); }
+function Textarea(props) { return createElement('textarea', props); }
+function Tfoot(props) { return createElement('tfoot', props); }
+function Th(props) { return createElement('th', props); }
+function Thead(props) { return createElement('thead', props); }
+function Time(props) { return createElement('time', props); }
+function Title(props) { return createElement('title', props); }
+function Tr(props) { return createElement('tr', props); }
+function U(props) { return createElement('u', props); }
+function Ul(props) { return createElement('ul', props); }
+function Var(props) { return createElement('var', props); }
+function Video(props) { return createElement('video', props); }
+function Wbr(props) { return createElement('wbr', props); }
+
+// Create text node
+function Text(content) {
+  return document.createTextNode(content);
+}
+
+// Export functions if using ES modules (omit if using directly in HTML)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { 
+    A, Abbr, Address, Area, Article, Aside, Audio, B, Base, Bdi, Bdo, Blockquote, Body,
+    Br, Button, Canvas, Caption, Cite, Code, Col, Colgroup, Data, Datalist, Del, Details,
+    Dfn, Dialog, Div, Dl, Dt, Em, Embed, Fieldset, Figcaption, Figure, Footer, Form, H1, H2,
+    H3, H4, H5, H6, Head, Header, Hr, Html, I, Iframe, Img, Input, Ins, Kbd, Label, Legend,
+    Li, Link, Main, Map, Mark, Meta, Meter, Nav, Noscript, Object, Ol, Optgroup, Option,
+    Output, P, Param, Picture, Pre, Progress, Q, Rp, Rt, Ruby, S, Samp, Script, Section,
+    Select, Small, Source, Span, Strong, Style, Sub, Summary, Sup, Table, Tbody, Td,
+    Textarea, Tfoot, Th, Thead, Time, Title, Tr, U, Ul, Var, Video, Wbr, Text
+  };
 }
