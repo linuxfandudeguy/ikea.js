@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikea.js - Assemble UI Components Easily</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.min.css" rel="stylesheet">
+
+    <!-- Prism.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@latest/components/prism-javascript.min.js"></script>
+
+    <style>
+        /* Custom Styles */
+        .code {
+            background-color: #1e3a8a; /* Tailwind blue-800 */
+            color: #fbbf24; /* Tailwind yellow-400 */
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <header class="bg-blue-900 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Ikea.js</h1>
+            <nav>
+                <a href="#about" class="text-lg hover:text-gray-300">About</a>
+                <a href="#example" class="ml-6 text-lg hover:text-gray-300">Example</a>
+                <a href="#usage" class="ml-6 text-lg hover:text-gray-300">Usage</a>
+                <a href="#contact" class="ml-6 text-lg hover:text-gray-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-blue-800 text-white py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Welcome to Ikea.js</h2>
+                <p class="text-xl mb-8">Assemble UI components using JavaScript, just like assembling furniture from IKEA.</p>
+                <a href="#usage" class="bg-yellow-500 text-blue-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-400">Get Started</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12">About Ikea.js</h2>
+                <p class="text-lg mb-8">Ikea.js is a lightweight JavaScript library that lets you build UI components in a modular fashion, similar to how you would assemble furniture from IKEA. Its simplicity and ease of use make it a great choice for developers looking to quickly put together UI elements without the complexity of larger frameworks.</p>
+            </div>
+        </section>
+
+        <!-- Example Section -->
+        <section id="example" class="bg-gray-100 py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12">Example Code</h2>
+                <pre class="text-left"><code class="language-javascript">// Example usage of Ikea.js to create a button
+Button({
+    text: 'Click Me!',
+    onClick: () => alert('Button clicked!')
+});
+
+// Example usage of Ikea.js to create a div
+Div({
+    children: [
+        'This is a div created with Ikea.js',
+        Button({
+            text: 'Another Button',
+            onClick: () => console.log('Another button clicked!')
+        })
+    ]
+});
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="usage" class="py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12">How to Use Ikea.js</h2>
+                <p class="text-lg mb-8">To start using Ikea.js, include the following script in your HTML:</p>
+                <pre class="text-left"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/linuxfandudeguy/ikea.js@ikeajs0.3/ikea.min.js"&gt;&lt;/script&gt;</code></pre>
+                <p class="text-lg mb-8">Then, you can start assembling UI components using the provided functions. For example:</p>
+                <pre class="text-left"><code class="language-javascript">// Create a button
+Button({
+    text: 'My Ikea Button',
+    onClick: () => alert('Hello, world!')
+});
+
+// Create a div with children elements
+Div({
+    children: [
+        'Welcome to my Ikea.js app!',
+        Button({
+            text: 'Click Me',
+            onClick: () => alert('Button Clicked!')
+        })
+    ]
+});
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-100 py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12">Contact Us</h2>
+                <p class="text-lg mb-8">Have any questions or need support? Reach out to us at <a href="mailto:koshlandjg105@gmail.com" class="text-blue-900 hover:underline">koshlandjg105@gmail.com</a> and we'll be happy to assist you!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p>&copy; 2024 Ikea.js. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/linuxfandudeguy/ikea.js@ikeajs0.3/ikea.min.js"></script>
+    <script>
+        Prism.highlightAll();
+    </script>
+</body>
+</html>
