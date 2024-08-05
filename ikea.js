@@ -3,6 +3,8 @@ Ikea.js - A simple JavaScript framework for HTML elements
 
 Copyright (c) 2024, lelbois (alias of linuxfandudeguy)
 All rights reserved.
+
+Repo: https://github.com/linuxfandudeguy/ikea.js/
 */
 
 // Helper function to create an element and set properties
