@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikea.js Example Page</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Ikea.js -->
+    <script src="https://cdn.jsdelivr.net/gh/linuxfandudeguy/ikea.js@ikeajs0.4/ikea.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <header class="bg-blue-900 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Ikea.js Example</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8" id="main-content">
+
+        <!-- Example Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold">Demonstrating Multiple HTML Elements with Ikea.js</h1>
+        </div>
+
+        <!-- Example Section -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <div class="container mx-auto" id="example-section">
+                <!-- Content to be rendered by Ikea.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p>&copy; 2024 Ikea.js Example. All rights reserved.</p>
+    </footer>
+
+    <!-- Inline script to render elements using Ikea.js -->
+    <script>
+        function createExampleContent() {
+            // Creating example content using Ikea.js
+
+            // Main container
+            const mainContent = document.getElementById('example-section');
+
+            // H2 Header
+            const header = H2({ class: "text-xl font-semibold mb-2", children: ["Heading 2"] });
+
+            // Paragraph
+            const paragraph = P({ class: "mb-2", children: [
+                "This is a paragraph demonstrating ", 
+                Strong({ children: ["bold text"] }), 
+                " and ", 
+                I({ children: ["italic text"] }), 
+                "."
+            ] });
+
+            // Unordered List
+            const ul = Ul({ class: "list-disc ml-5 mb-4", children: [
+                Li({ class: "mb-1", children: ["List item 1"] }),
+                Li({ class: "mb-1", children: ["List item 2"] }),
+                Li({ class: "mb-1", children: ["List item 3"] })
+            ] });
+
+            // Link
+            const link = A({ href: "#", class: "text-blue-500 hover:underline", children: ["This is a link"] });
+
+            // Blockquote
+            const blockquote = Blockquote({ class: "border-l-4 border-blue-500 pl-4 italic mb-4", children: ["This is a blockquote element."] });
+
+            // Image
+            const img = Img({ src: "https://via.placeholder.com/150", alt: "Placeholder image", class: "rounded-lg shadow-md mb-4" });
+
+            // Button
+            const button = Button({ class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400", children: ["A Button"] });
+
+            // Nested Elements
+            const nestedHeader = H3({ class: "text-lg font-semibold mb-2", children: ["Nested Elements"] });
+            const nestedDiv = Div({ class: "border p-4 rounded", children: [
+                H4({ class: "text-md font-semibold mb-2", children: ["Nested Heading 4"] }),
+                P({ children: ["This is a nested paragraph within a div element."] }),
+                Span({ class: "text-gray-600", children: ["This is a span element inside the nested div."] })
+            ] });
+
+            // Form
+            const form = Form({ children: [
+                Label({ for: "name", class: "block mb-2", children: ["Name:"] }),
+                Input({ id: "name", type: "text", class: "border p-2 rounded mb-4", placeholder: "Enter your name" }),
+                Label({ for: "message", class: "block mb-2", children: ["Message:"] }),
+                Textarea({ id: "message", rows: "4", class: "border p-2 rounded mb-4", placeholder: "Enter your message" }),
+                Button({ type: "submit", class: "bg-green-500 text-white px-4 py-2 rounded hover:bg-green-400", children: ["Submit"] })
+            ] });
+
+            // Append elements to the main content
+            mainContent.appendChild(header);
+            mainContent.appendChild(paragraph);
+            mainContent.appendChild(ul);
+            mainContent.appendChild(link);
+            mainContent.appendChild(blockquote);
+            mainContent.appendChild(img);
+            mainContent.appendChild(button);
+            mainContent.appendChild(nestedHeader);
+            mainContent.appendChild(nestedDiv);
+            mainContent.appendChild(form);
+        }
+
+        // Render the example content
+        createExampleContent();
+    </script>
+
+</body>
+</html>
