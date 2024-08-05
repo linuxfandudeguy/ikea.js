@@ -1,3 +1,10 @@
+/*
+Ikea.js - A simple JavaScript framework for HTML elements
+
+Copyright (c) 2024, lelbois (alias of linuxfandudeguy)
+All rights reserved.
+*/
+
 // Helper function to create an element and set properties
 function createElement(tagName, props = {}) {
     const element = document.createElement(tagName);
