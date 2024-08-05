@@ -1,24 +1,32 @@
-// Ikea.js - A simple JavaScript framework for HTML elements 
-
 // Helper function to create an element and set properties
 function createElement(tagName, props = {}) {
-  const element = document.createElement(tagName);
+    const element = document.createElement(tagName);
 
-  // Set properties
-  for (const key in props) {
-    if (props.hasOwnProperty(key) && key !== 'children') {
-      element[key] = props[key];
+    // Set properties
+    for (const key in props) {
+        if (props.hasOwnProperty(key) && key !== 'children') {
+            if (key.startsWith('on')) {
+                // Event handlers
+                element[key] = props[key];
+            } else {
+                // Other attributes or properties
+                element.setAttribute(key, props[key]);
+            }
+        }
     }
-  }
 
-  // Append children
-  if (props.children) {
-    props.children.forEach(child => {
-      element.appendChild(child);
-    });
-  }
+    // Append children
+    if (props.children) {
+        props.children.forEach(child => {
+            if (typeof child === 'string') {
+                element.appendChild(document.createTextNode(child));
+            } else if (child instanceof Node) {
+                element.appendChild(child);
+            }
+        });
+    }
 
-  return element;
+    return element;
 }
 
 // Functions for standard HTML elements
@@ -132,5 +140,5 @@ function Wbr(props) { return createElement('wbr', props); }
 
 // Helper function to create a Text node
 function Text(content) {
-  return document.createTextNode(content);
+    return document.createTextNode(content);
 }
